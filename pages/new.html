@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Encontre sua sala - admin</title>
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="../css/materialize.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="../css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+  </head>
+  <body class="teal lighten-5">
+    <!-- Restante do código do HTML -->
+
+    <!-- classroom list -->
+    <div class="classrooms container grey-text text-darken-1">
+      <div class="grey-text text-darken-1 classroom">
+        <div class="classroom-details">
+          <input
+            type="text"
+            value="Medicina Veterinária"
+            class="classroom-title"
+            contenteditable="true"
+          />
+          <input
+            type="text"
+            value="Bloco C, Sala 8"
+            class="classroom-location"
+            contenteditable="true"
+          />
+          <button class="btn-small save-btn" style="display: none">
+            Salvar
+          </button>
+        </div>
+      </div>
+      <div class="grey-text text-darken-1 classroom">
+        <div class="classroom-details">
+          <input
+            type="text"
+            value="Direito"
+            class="classroom-title"
+            contenteditable="true"
+          />
+          <input
+            type="text"
+            value="Bloco B, Sala 13"
+            class="classroom-location"
+            contenteditable="true"
+          />
+          <button class="btn-small save-btn" style="display: none">
+            Salvar
+          </button>
+        </div>
+      </div>
+      <!-- Add more classrooms here as needed -->
+    </div>
+    <!-- add button -->
+    <div class="center">
+      <a
+        class="btn-floating btn-large add-btn sidenav-trigger"
+        data-target="add-form"
+      >
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+
+    <div class="information-bar teal lighten-2 white-text">
+      <div class="container">
+        <span class="last-update"
+          >Última atualização: July 30, 2023 10:00 AM</span
+        >
+      </div>
+    </div>
+
+    <!-- add form -->
+    <div id="add-form" class="sidenav side-form">
+      <form class="add-classroom container section">
+        <h6>Adicionar Nova Sala</h6>
+        <div class="divider"></div>
+        <div class="input-field">
+          <input
+            placeholder="exemplo: Medicina Veterinária"
+            id="course-name"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="course-name">Curso</label>
+        </div>
+        <div class="input-field">
+          <input
+            placeholder="Exemplo: Bloco C, Sala 8"
+            id="location"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="location">Localização</label>
+        </div>
+        <div class="input-field center">
+          <button class="btn-small">Adicionar Sala</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const classroomDetails =
+          document.querySelectorAll(".classroom-details");
+        const lastUpdate = document.querySelector(".last-update");
+
+        classroomDetails.forEach((details) => {
+          const classroomTitleInput = details.querySelector(".classroom-title");
+          const classroomLocationInput = details.querySelector(
+            ".classroom-location"
+          );
+          const saveButton = details.querySelector(".save-btn");
+
+          const originalTitle = classroomTitleInput.value;
+          const originalLocation = classroomLocationInput.value;
+
+          classroomTitleInput.addEventListener("input", () => {
+            const hasChanges =
+              classroomTitleInput.value !== originalTitle ||
+              classroomLocationInput.value !== originalLocation;
+            saveButton.style.display = hasChanges ? "block" : "none";
+          });
+
+          classroomLocationInput.addEventListener("input", () => {
+            const hasChanges =
+              classroomTitleInput.value !== originalTitle ||
+              classroomLocationInput.value !== originalLocation;
+            saveButton.style.display = hasChanges ? "block" : "none";
+          });
+
+          saveButton.addEventListener("click", () => {
+            originalTitle = classroomTitleInput.value;
+            originalLocation = classroomLocationInput.value;
+            saveButton.style.display = "none";
+            updateLastUpdate();
+          });
+        });
+
+        function updateLastUpdate() {
+          const now = new Date();
+          const formattedDate = now.toLocaleString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          });
+          lastUpdate.textContent = `Última atualização: ${formattedDate}`;
+        }
+      });
+    </script>
+  </body>
+</html>

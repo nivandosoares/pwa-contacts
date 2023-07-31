@@ -1,88 +1,105 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PK Contacts</title>
-  <!-- materialize icons, css & js -->
-  <link type="text/css" href="css/materialize.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" href="css/styles.css" rel="stylesheet">
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  
-</head>
-<body class="teal lighten-5">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Encontre sua sala</title>
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="css/materialize.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </head>
+  <body class="teal lighten-5">
+    <!-- top nav -->
+    <nav class="z-depth-0">
+      <div class="nav-wrapper container">
+        <span class="left grey-text text-darken-1">
+          <i class="material-icons sidenav-trigger" data-target="side-menu"
+            >menu</i
+          >
+        </span>
+        <a class="right" href="./index.html">Encontre sua <span>Sala</span></a>
+      </div>
+    </nav>
 
-  <!-- top nav -->
-  <nav class="z-depth-0">
-    <div class="nav-wrapper container">      
-      <span class="left grey-text text-darken-1">
-        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
-      </span>
-      <a class="right" href="/">PK<span>Contacts</span></a>
+    <!-- side nav -->
+    <ul id="side-menu" class="sidenav side-menu">
+      <li><a class="subheader">Encontre sua sala</a></li>
+      <li><a href="./index.html" class="waves-effect">Página inicial</a></li>
+      <li>
+        <a href="pages/about.html" class="waves-effect"
+          >Sobre o desenvolvedor</a
+        >
+      </li>
+    </ul>
+
+    <!-- classroom list -->
+    <div class="classrooms container grey-text text-darken-1">
+      <div class="grey-text text-darken-1 classroom">
+        <div class="classroom-details">
+          <div class="classroom-title">Medicina Veterinária</div>
+          <div class="classroom-location">Bloco C, Sala 8</div>
+        </div>
+      </div>
+      <div class="grey-text text-darken-1 classroom">
+        <div class="classroom-details">
+          <div class="classroom-title">Direito</div>
+          <div class="classroom-location">Bloco B, Sala 13</div>
+        </div>
+      </div>
+      <!-- Add more classrooms here as needed -->
     </div>
-  </nav>
 
-  <!-- side nav -->
-  <ul id="side-menu" class="sidenav side-menu">
-    <li><a class="subheader">PK Contacts</a></li>
-    <li><a href="/" class="waves-effect">Home</a></li>
-    <li><a href="pages/about.html" class="waves-effect">About</a></li>    
-  </ul>
+    <!-- search button -->
+    <div class="center">
+      <a
+        class="btn-floating btn-large search-btn sidenav-trigger"
+        data-target="search-form"
+      >
+        <i class="material-icons">search</i>
+      </a>
+    </div>
 
-  <!-- contacts -->
-  <div class="contacts container grey-text text-darken-1">
-    <!-- <div class="card-panel contact teal lighten-4 row">
-      <img src="img/pkcontacts.png" alt="contact thumb">
-      <div class="contact-details">
-        <div class="contact-title">John Doe</div>
-        <div class="contact-numbers">+130902092309</div>
-      </div>      
-      <div class="contact-options">        
-        <i class="material-icons call_out">call_outline</i>                       
-        <i class="material-icons">delete_outline</i>              
-      </div>
-    </div>     -->
-    <div class="grey-text text-darken-1 pk-contact">
-      <div class="contact-image">
-        <img src="img/pkcontacts.png" alt="contact thumb">
-      </div>
-      <div class="contact-details">
-        <div class="contact-title">John Doe</div>
-        <div class="contact-numbers">+130902092309</div>
-      </div>
-      <div class="contact-options">        
-        <i class="material-icons">call</i>              
-        <i class="material-icons">delete_outline</i>              
+    <div class="information-bar teal lighten-2 white-text">
+      <div class="container">
+        <span>Última atualização: July 30, 2023 10:00 AM</span>
       </div>
     </div>
-  </div>
 
-  <div class="center">
-    <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
-      <i class="material-icons">add</i>
-    </a>
-  </div>
+    <!-- search form -->
+    <div id="search-form" class="sidenav side-form">
+      <form class="search-classroom container section">
+        <h6>Buscar por curso</h6>
+        <div class="divider"></div>
+        <div class="input-field">
+          <input
+            placeholder="exemplo: Direito"
+            id="course-name"
+            type="text"
+            class="validate"
+          />
+          <label for="course-name">Curso</label>
+        </div>
+        <div class="input-field">
+          <input
+            placeholder="Exemplo: 1"
+            id="semester"
+            type="text"
+            class="validate"
+          />
+          <label for="semester">Semestre</label>
+        </div>
+        <div class="input-field center">
+          <button class="btn-small">Buscar</button>
+        </div>
+      </form>
+    </div>
 
-  <!-- add contact side nav -->
-  <div id="side-form" class="sidenav side-form">
-    <form class="add-contact container section">
-      <h6 >New Contact</h6>
-      <div class="divider"></div>
-      <div class="input-field">
-        <input placeholder="e.g. John Doe" id="title" type="text" class="validate">
-        <label for="title">Contact Name</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="e.g. +198392323" id="numbers" type="text" class="validate">
-        <label for="numbers">Number</label>
-      </div>
-      <div class="input-field center">
-        <button class="btn-small">Add Contact</button>
-      </div>
-    </form>
-  </div>
-
-  <script src="js/common.js"></script>
-</body>
+    <script src="js/common.js"></script>
+  </body>
 </html>
